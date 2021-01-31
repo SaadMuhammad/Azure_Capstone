@@ -68,7 +68,6 @@ max_concurrent_iterations | **5** iterations were allowded to run in parallel
 primary_metric | **Accuracy** is being selected to be the primary metric to be improved/selected 
 
 ### Results
-*TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
 
 The AutoML model namely **Voting Ensemble** scored the best accuracy with **0.82256667**. 
 
@@ -77,13 +76,20 @@ boosting_type' as 'gbdt', 'colsample_bytree' set at 1.0, 'importance_type' was '
 'min_child_samples'were set to 20, 'min_child_weight'is set to 0.001, 'n_estimators' were 100, 'n_jobs' were 1, 'num_leaves'were 31,
 'silent': True, 'subsample' was set to 1.0, 'subsample_for_bin' were 200000, 'subsample_freq' was 0, 'verbose' was -10.
 
+**Improvements for AutoML**
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
-![Screenshot](automl_runs.PNG)
+1. Addition of model stacking and blending techniques in AutoML will be a very valuable addition. As this will provide independence in stacking or blending top performing models to further improve the mertics
 
-![Screenshot](auto_acc.PNG)
+2. Option to select/create multi layer deeplearning model or even pre-trained model to be utilized (transfer learning techniques) will be of great use here.
 
+3.Custom imputations to fill missing values based on data to data scenario would be a game changer i.e. Imputations that fill missing values based on feature importance, correlations and other statistcal knowledge will enhance model performance surprisingly.
 
+**Screenshots for the RunWidget & Model**
+![Screenshot](https://github.com/SaadMuhammad/Azure_Capstone/blob/main/Screenshots/automl_runs.PNG)
+
+![Screenshot](https://github.com/SaadMuhammad/Azure_Capstone/blob/main/Screenshots/auto_acc.PNG)
+
+![Screenshot](https://github.com/SaadMuhammad/Azure_Capstone/blob/main/Screenshots/auto_best.PNG)
 
 
 ## Hyperparameter Tuning
