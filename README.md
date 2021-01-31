@@ -46,12 +46,45 @@ default payment next month | Target Variable (to be predicted)
 The CSV file has been added to Azure Storage via **TabularDatasetFactory** Class of Azure ML. It is also available and can be accessed here: [**My Github Link**](https://raw.githubusercontent.com/SaadMuhammad/Azure_Capstone/main/default_credit_clients1.csv)
 
 ## Automated ML
-*TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
+
+
+Configrations used for **Auto ML** are as follows:
+
+Configration | Details
+------------ | -------------
+task | This is a classification task to predict defaulters for payments in next month
+compute_target | Experiment is being run on amlcluster namely **SaadCompute**
+label_column_name | **'default payment next month'** is the target coulmn
+enable_onnx_compatible_models | enable_onnx_compatible_models is set to **True** because i have converted the best automl to **ONNX Format**
+n_cross_validations | No of cross validations is set to 4
+
+
+Also settings were as follows:
+
+Setting | Details
+------------ | -------------
+experiment_timeout_minutes | Set the experiment to finsih model selection and experiment in **25 mins**
+max_concurrent_iterations | **5** iterations were allowded to run in parallel
+primary_metric | **Accuracy** is being selected to be the primary metric to be improved/selected 
 
 ### Results
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
 
+The AutoML model namely **Voting Ensemble** scored the best accuracy with **0.82256667**. 
+
+The parameters for **Voting Ensemble** were: 
+boosting_type' as 'gbdt', 'colsample_bytree' set at 1.0, 'importance_type' was 'split', 'learning_rate' was set to 0.1,
+'min_child_samples'were set to 20, 'min_child_weight'is set to 0.001, 'n_estimators' were 100, 'n_jobs' were 1, 'num_leaves'were 31,
+'silent': True, 'subsample' was set to 1.0, 'subsample_for_bin' were 200000, 'subsample_freq' was 0, 'verbose' was -10.
+
+
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+![Screenshot](automl_runs.PNG)
+
+![Screenshot](auto_acc.PNG)
+
+
+
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
