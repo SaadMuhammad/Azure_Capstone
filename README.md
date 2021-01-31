@@ -130,6 +130,8 @@ The best model is deployed using **Azure Containce Instance (ACI Service)** with
 After ACI service creation and getting a Swagger and Scoring URL we create a same to test in **JSON** format and read the response from the deployed model. As shown below
 
 
+![Screenshot](https://github.com/SaadMuhammad/Azure_Capstone/blob/main/Screenshots/response.PNG)
+
 
 and this is the deployed model screenshot:
 
@@ -142,4 +144,12 @@ A detail tour of complete project can be viewed [**here**](https://youtu.be/MJAR
 
 
 ## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+
+Apart from above work i have also converted my best model in an **Open Neural Network Exchange (ONNX)** format. The reason for doing is because ONNX is a high-performance inference engine for deploying models to production. It's optimized for both cloud and edge and works on Linux, Windows, and Mac. ONNX Runtime is used in high-scale Microsoft services such as Bing, Office, and Azure Cognitive Services. Performance gains are dependent on a number of factors, but these Microsoft services have seen an average 2x performance gain on CPU.
+
+Another reason is models from many frameworks including TensorFlow, PyTorch, SciKit-Learn, Keras, Chainer, MXNet, MATLAB, and SparkML can be exported or converted to the standard ONNX format. Once the models are in the ONNX format, they can be run on a variety of platforms and devices.
+
+Here's how it can be done:
+
+![Screenshot](https://github.com/SaadMuhammad/Azure_Capstone/blob/main/Screenshots/ONNX.PNG)
+
