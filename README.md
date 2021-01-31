@@ -153,3 +153,4 @@ Here's how it can be done:
 
 ![Screenshot](https://github.com/SaadMuhammad/Azure_Capstone/blob/main/Screenshots/ONNX.PNG)
 
+ONNX model can be viewed and downloaded from [**here**](https://github.com/SaadMuhammad/Azure_Capstone/blob/main/saad_onnx_model.onnx)
