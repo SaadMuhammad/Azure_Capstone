@@ -1,22 +1,49 @@
-*NOTE:* This file is a template that you can use to create the README for your project. The *TODO* comments below will highlight the information you should be sure to include.
 
-# Your Project Title Here
 
-*TODO:* Write a short introduction to your project.
+# Azure Capstone Project: <ins> Predicting Defaulters Based on Previous Payments </ins>
 
-## Project Set Up and Installation
-*OPTIONAL:* If your project has any special installation steps, this is where you should put it. To turn this project into a professional portfolio project, you are encouraged to explain how to set up this project in AzureML.
 
-## Dataset
+# Dataset
+
 
 ### Overview
-*TODO*: Explain about the data you are using and where you got it from.
+The dataset used for this project is taken from [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php) which is an excellent source for opensource datasets to experiment with. The dataset is of credit card clients who defaulted on their regular payments based on payments made during past 6 months. The dataset contain 24 features from **Education**,**Age** **Gender** to **payments history of past months** with **30000** instances and no missing values. More details on dataset can be found [**here**](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients)
 
 ### Task
-*TODO*: Explain the task you are going to be solving with this dataset and the features you will be using for it.
+
+This is a classification problem to find if the clients will default on their next payments. To classify this we have 30 feautres with details as follows:
+
+Column Names | Details
+------------ | -------------
+ID | Client ID's
+LIMIT_BAL | Amount of the given credit (NT dollar)
+SEX | Gender (1 = male; 2 = female).
+EDUCATION | (1 = graduate school; 2 = university; 3 = high school; 4 = others).
+MARRIAGE | (1 = married; 2 = single; 3 = others).
+AGE | Age (year)
+PAY_0 | the repayment status in September, 2005
+PAY_2 | the repayment status in August, 2005
+PAY_3 | the repayment status in July, 2005
+PAY_4 | the repayment status in June, 2005
+PAY_5 | the repayment status in May, 2005
+PAY_6 | the repayment status in April, 2005
+BILL_AMT1 | amount of bill statement in September, 2005
+BILL_AMT2 | amount of bill statement in August, 2005
+BILL_AMT3 | amount of bill statement in July, 2005
+BILL_AMT4 | amount of bill statement in June, 2005
+BILL_AMT5 | amount of bill statement in May, 2005
+BILL_AMT6 | amount of bill statement in May, 2005
+PAY_AMT1 | amount paid in September, 2005
+PAY_AMT2 | amount paid in Augustr, 2005
+PAY_AMT3 | amount paid in July, 2005
+PAY_AMT4 | amount paid in June, 2005
+PAY_AMT5 | amount paid in May, 2005
+PAY_AMT6 | amount paid in April, 2005
+default payment next month | Target Variable (to be predicted)
 
 ### Access
-*TODO*: Explain how you are accessing the data in your workspace.
+
+The CSV file has been added to Azure Storage via **TabularDatasetFactory** Class of Azure ML. It is also available and can be accessed here: [**My Github Link**](https://raw.githubusercontent.com/SaadMuhammad/Azure_Capstone/main/default_credit_clients1.csv)
 
 ## Automated ML
 *TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
