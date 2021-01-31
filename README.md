@@ -82,9 +82,10 @@ boosting_type' as 'gbdt', 'colsample_bytree' set at 1.0, 'importance_type' was '
 
 2. Option to select/create multi layer deeplearning model or even pre-trained model to be utilized (transfer learning techniques) will be of great use here.
 
-3.Custom imputations to fill missing values based on data to data scenario would be a game changer i.e. Imputations that fill missing values based on feature importance, correlations and other statistcal knowledge will enhance model performance surprisingly.
+3. Custom imputations to fill missing values based on data to data scenario would be a game changer i.e. Imputations that fill missing values based on feature importance, correlations and other statistcal knowledge will enhance model performance surprisingly.
 
 **Screenshots for the RunWidget & Model**
+
 ![Screenshot](https://github.com/SaadMuhammad/Azure_Capstone/blob/main/Screenshots/automl_runs.PNG)
 
 ![Screenshot](https://github.com/SaadMuhammad/Azure_Capstone/blob/main/Screenshots/auto_acc.PNG)
@@ -95,11 +96,32 @@ boosting_type' as 'gbdt', 'colsample_bytree' set at 1.0, 'importance_type' was '
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
 
+Hyper Drive configration consist of compute target created in Azure. a pyhton script (**train.py** for our case), **Logistic Regression** as the classification algorithm and inverse regulaization and mat_iteratons as hyper paramters
+
+2 paramters were used here, Inverse of regularization strength **'--C'** and **'max_iters'** **'--C'** is a trade of paramter of logistic regression and is used to apply penalty on magnitude of paramters to reduce overfitting higher values of C correspond to less regularizationand wise versa and **'max_iters'** is the number of iterations model will take to converge to a minima. We have employed **RandomSampling** as our paramter sampling because the biggest benefit of RandomSampling is it choose hyperparamters randmoly thus reducing the computational time and complexity. Other options we had were Grid sampling and Bayesian sampling both of them had their own importance like Grid sampling confines the search within a given set of paramters while Bayesian sampling select the next set of hyperparameters based on how the previous hyperparams performed. For Extensive search we can employ RandomSampling as a starting point and then using those hyperparameters do a Grid or Bayesian sampling as per our understanding of the problem and time.
+
+Early stopping policy used here is **BanditPolicy**, its biggest benifit is that this policy terminates any runs early where the primary metric (accuray in our case) is not within the selected/pre-defined slack factor with respect to the best performing training run.
 
 ### Results
-*TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+The best Accuracy with which logistic regression performed was **0.7834444444444445** with Regularization Strength at **1.0** and Max Iterations at **170**.
+ 
+**HyperDrive Improvements**
+
+1. Using different primary metric like AUC, ROC, or precision and recall as sometimes accuracy alone is not enough to ensure model's success.
+
+2. Use a combination of Grid/Bayesian with Random Sampling as ensembling or boosting like Grid sampling confines the search within a given set of paramters while Bayesian sampling select the next set of hyperparameters based on how the previous hyperparams performed. For Extensive search we can employ RandomSampling as a starting point and then using those hyperparameters do a Grid or Bayesian sampling as per our understanding of the problem and time
+
+
+
+![Screenshot](https://github.com/SaadMuhammad/Azure_Capstone/blob/main/Screenshots/hyper_runs1.PNG)
+
+![Screenshot](https://github.com/SaadMuhammad/Azure_Capstone/blob/main/Screenshots/hyper_best.PNG)
+
+![Screenshot](https://github.com/SaadMuhammad/Azure_Capstone/blob/main/Screenshots/Hyper_img.PNG)
+
+![Screenshot](https://github.com/SaadMuhammad/Azure_Capstone/blob/main/Screenshots/hyper_cord.PNG)
+
 
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
