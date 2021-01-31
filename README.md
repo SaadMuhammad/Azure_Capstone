@@ -94,7 +94,7 @@ boosting_type' as 'gbdt', 'colsample_bytree' set at 1.0, 'importance_type' was '
 
 
 ## Hyperparameter Tuning
-*TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
+
 
 Hyper Drive configration consist of compute target created in Azure. a pyhton script (**train.py** for our case), **Logistic Regression** as the classification algorithm and inverse regulaization and mat_iteratons as hyper paramters
 
@@ -112,7 +112,7 @@ The best Accuracy with which logistic regression performed was **0.7834444444444
 
 2. Use a combination of Grid/Bayesian with Random Sampling as ensembling or boosting like Grid sampling confines the search within a given set of paramters while Bayesian sampling select the next set of hyperparameters based on how the previous hyperparams performed. For Extensive search we can employ RandomSampling as a starting point and then using those hyperparameters do a Grid or Bayesian sampling as per our understanding of the problem and time
 
-
+### HyperDrive Screenshots
 
 ![Screenshot](https://github.com/SaadMuhammad/Azure_Capstone/blob/main/Screenshots/hyper_runs1.PNG)
 
@@ -124,13 +124,22 @@ The best Accuracy with which logistic regression performed was **0.7834444444444
 
 
 ## Model Deployment
-*TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
+
+The best model is deployed using **Azure Containce Instance (ACI Service)** with 2 cpu_cores and 1 gb of memory_gb. Ofcourse this deployment wont be possible without scoring file **'scoreScript.py'** which was saved in outputs via **best_run** alongside **'envFile.yml'**. Scoring file was important for creating Inference Configration for ACI.
+
+After ACI service creation and getting a Swagger and Scoring URL we create a same to test in **JSON** format and read the response from the deployed model. As shown below
+
+
+
+and this is the deployed model screenshot:
+
+![Screenshot](https://github.com/SaadMuhammad/Azure_Capstone/blob/main/Screenshots/deployed_model.PNG)
+
 
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
-- A working model
-- Demo of the deployed  model
-- Demo of a sample request sent to the endpoint and its response
+
+A detail tour of complete project can be viewed [**here**](https://youtu.be/MJARE2u-Plw)
+
 
 ## Standout Suggestions
 *TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
