@@ -149,7 +149,7 @@ Apart from above work i have also converted my best model in an **Open Neural Ne
 
 Another reason is models from many frameworks including TensorFlow, PyTorch, SciKit-Learn, Keras, Chainer, MXNet, MATLAB, and SparkML can be exported or converted to the standard ONNX format. Once the models are in the ONNX format, they can be run on a variety of platforms and devices.
 
-Here's how it can be done:
+Here's how it can be done :
 
 ![Screenshot](https://github.com/SaadMuhammad/Azure_Capstone/blob/main/Screenshots/ONNX.PNG)
 
